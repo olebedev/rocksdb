@@ -1504,14 +1504,14 @@ install-headers:
 		install -d $(INSTALL_PATH)/$$header_dir; \
 	done
 	for header in `find "include/rocksdb" -type f -name *.h`; do \
-		install -C -m 644 $$header $(INSTALL_PATH)/$$header; \
+		install -m 644 $$header $(INSTALL_PATH)/$$header; \
 	done
 
 install-static: install-headers $(LIBRARY)
-	install -C -m 755 $(LIBRARY) $(INSTALL_PATH)/lib
+	install -m 755 $(LIBRARY) $(INSTALL_PATH)/lib
 
 install-shared: install-headers $(SHARED4)
-	install -C -m 755 $(SHARED4) $(INSTALL_PATH)/lib && \
+	install -m 755 $(SHARED4) $(INSTALL_PATH)/lib && \
 		ln -fs $(SHARED4) $(INSTALL_PATH)/lib/$(SHARED3) && \
 		ln -fs $(SHARED4) $(INSTALL_PATH)/lib/$(SHARED2) && \
 		ln -fs $(SHARED4) $(INSTALL_PATH)/lib/$(SHARED1)
